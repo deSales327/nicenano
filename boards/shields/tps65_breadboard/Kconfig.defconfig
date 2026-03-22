@@ -1,0 +1,12 @@
+if SHIELD_TPS65_BREADBOARD
+
+config ZMK_KEYBOARD_NAME
+    default "TPS65 Breadboard"
+
+config ZMK_POINTING
+    default y
+
+config I2C
+    default y
+
+endif

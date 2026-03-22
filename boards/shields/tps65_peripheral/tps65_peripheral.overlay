@@ -1,0 +1,14 @@
+#include "../tps65_common/tps65_device.dtsi"
+
+/ {
+    split_inputs {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        tps65_split: tps65_split@0 {
+            compatible = "zmk,input-split";
+            reg = <0>;
+            device = <&tps65>;
+        };
+    };
+};

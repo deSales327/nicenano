@@ -1,0 +1,16 @@
+include:
+  - board: nice_nano
+    shield: tps65_breadboard
+    artifact-name: tps65-breadboard
+  - board: nice_nano
+    shield: "sofle_left tps65_central"
+    artifact-name: sofle-left-tps65-central
+  - board: nice_nano
+    shield: sofle_right
+    artifact-name: sofle-right-no-trackpad
+  - board: nice_nano
+    shield: "sofle_left tps65_listener"
+    artifact-name: sofle-left-trackpad-listener
+  - board: nice_nano
+    shield: "sofle_right tps65_peripheral"
+    artifact-name: sofle-right-tps65-peripheral

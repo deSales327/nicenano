@@ -1,0 +1,37 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+#include <physical_layouts.dtsi>
+#include "../tps65_common/tps65_device.dtsi"
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,physical-layout = &tps65_breadboard_layout;
+    };
+
+    tps65_breadboard_layout: tps65_breadboard_layout {
+        compatible = "zmk,physical-layout";
+        display-name = "TPS65 Breadboard";
+        keys = <&key_physical_attrs 100 100 0 0 0 0 0>;
+        transform = <&transform0>;
+    };
+
+    tps65_listener: tps65_listener {
+        compatible = "zmk,input-listener";
+        device = <&tps65>;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-direct";
+        wakeup-source;
+        debounce-press-ms = <10>;
+        debounce-release-ms = <10>;
+        input-gpios = <&pro_micro 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+    };
+
+    transform0: keymap_transform {
+        compatible = "zmk,matrix-transform";
+        columns = <1>;
+        rows = <1>;
+        map = <RC(0,0)>;
+    };
+};

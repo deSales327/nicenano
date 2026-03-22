@@ -1,0 +1,9 @@
+if SHIELD_TPS65_LISTENER
+
+config ZMK_POINTING
+    default y
+
+config I2C
+    default y
+
+endif

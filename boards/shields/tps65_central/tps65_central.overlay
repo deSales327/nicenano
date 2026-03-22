@@ -1,0 +1,8 @@
+#include "../tps65_common/tps65_device.dtsi"
+
+/ {
+    tps65_listener: tps65_listener {
+        compatible = "zmk,input-listener";
+        device = <&tps65>;
+    };
+};
