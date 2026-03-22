@@ -19,17 +19,17 @@ The sample build matrix is aimed at a Sofle using nice!nano controllers:
 The add-on shields assume the following defaults in
 `boards/shields/tps65_common/tps65_device.dtsi`:
 
-- `SDA`: Pro Micro `D1`
-- `SCL`: Pro Micro `D0`
-- `RDY`: Pro Micro `D2`
-- `RST`: Pro Micro `D3`
+- `SDA`: Pro Micro `D2`
+- `SCL`: Pro Micro `D3`
+- `RDY`: Pro Micro `D8`
+- `RST`: Pro Micro `D9`
 - `VCC`: `3V3`
 - `GND`: `GND`
 
 This is intentional:
 
-- `D1`/`D0` are the standard `pro_micro_i2c` pins.
-- `D2`/`D3` are free on a Sofle and are a clean choice for the TPS65 `RDY` and `RST` lines.
+- In the ZMK `nice_nano` board definition used by this repo, `pro_micro_i2c` maps to `D2`/`D3`.
+- `D8`/`D9` are then a clean choice for the TPS65 `RDY` and `RST` lines.
 
 If your wiring or physical orientation differs, adjust
 `boards/shields/tps65_common/tps65_device.dtsi`:
@@ -57,10 +57,10 @@ For an initial breadboard test with a nice!nano-compatible `V1940 ProMicro NRF52
 
 - TPS65 `VCC` -> controller `3V3`
 - TPS65 `GND` -> controller `GND`
-- TPS65 `SDA` -> controller `D1`
-- TPS65 `SCL` -> controller `D0`
-- TPS65 `RDY` -> controller `D2`
-- TPS65 `RST` -> controller `D3`
+- TPS65 `SDA` -> controller `D2`
+- TPS65 `SCL` -> controller `D3`
+- TPS65 `RDY` -> controller `D8`
+- TPS65 `RST` -> controller `D9`
 
 The single-board `tps65_breadboard` shield also defines one dummy key on `D4` with an internal
 pull-up. You do not need to wire anything to `D4`; it exists only so ZMK has a stable one-key
