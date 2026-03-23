@@ -30,6 +30,7 @@ This is intentional:
 
 - In the ZMK `nice_nano` board definition used by this repo, `pro_micro_i2c` maps to `D2`/`D3`.
 - `D8`/`D9` are then a clean choice for the TPS65 `RDY` and `RST` lines.
+- The I2C bus is driven at `400 kHz`, matching working IQS5xx examples.
 
 If your wiring or physical orientation differs, adjust
 `boards/shields/tps65_common/tps65_device.dtsi`:
@@ -50,6 +51,14 @@ The pinned IQS5xx module supports:
 
 The default node in this repo enables all of those except any axis inversion that depends on your
 physical mounting.
+
+The shield configs also explicitly enable the required ZMK/Zephyr symbols for pointing devices:
+
+- `CONFIG_ZMK_MOUSE`
+- `CONFIG_ZMK_POINTING`
+- `CONFIG_INPUT`
+- `CONFIG_INPUT_AZOTEQ_IQS5XX`
+- `CONFIG_I2C`
 
 ## Recommended First Wiring
 
